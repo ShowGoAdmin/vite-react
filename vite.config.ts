@@ -10,7 +10,17 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  optimizeDeps: {
-    exclude: ['lucide-react'],
+  server: {
+    port: 3000, // Set the development server port
+    open: true, // Automatically opens the browser
+  },
+  build: {
+    outDir: 'dist', // Output directory for the production build
+    rollupOptions: {
+      input: path.resolve(__dirname, 'index.html'), // Ensure entry point is correct
+    },
+  },
+  preview: {
+    port: 8080, // Specify a port for the preview server
   },
 });
