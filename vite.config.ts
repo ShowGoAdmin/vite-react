@@ -11,7 +11,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000, // Set the development server port
+    port: 5173, // Set the development server port
     open: true, // Automatically opens the browser
   },
   build: {
@@ -21,6 +21,6 @@ export default defineConfig({
     },
   },
   preview: {
-    port: 8080, // Specify a port for the preview server
+    port: 5173, // Specify a port for the preview server
   },
 });
