@@ -153,7 +153,7 @@ export default function HomePage() {
         {/* <Button size="lg">Explore</Button> */}
       </div>
       <img 
-        src="/assets/transfer_gif.gif" 
+        src="/src/assets/transfer.gif" 
         alt="Transfer Ticket GIF"
         className="w-full rounded-lg shadow-2xl"
       />
@@ -167,7 +167,7 @@ export default function HomePage() {
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div className="bg-white/5 rounded-2xl p-6">
         <img 
-          src="/assets/sell_gif.gif" 
+          src="/src/assets/sell.gif" 
           alt="Sell Ticket GIF"
           className="w-full rounded-lg shadow-2xl"
         />
@@ -199,7 +199,7 @@ export default function HomePage() {
         {/* <Button size="lg">Explore</Button> */}
       </div>  
         <img 
-          src="/assets/group_gif.gif" 
+          src="/src/assets/group.gif" 
           alt="Group Booking GIF"
           className="w-full rounded-lg shadow-2xl"
         />
