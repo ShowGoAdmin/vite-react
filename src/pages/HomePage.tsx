@@ -1,38 +1,38 @@
 import { ArrowRightLeft, Users, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+// import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 
-const trendingEvents = [
-  {
-    id: 1,
-    title: "Summer Music Festival",
-    date: "2024-07-15",
-    price: "15000",
-    image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=500&h=300&fit=crop"
-  },
-  {
-    id: 2,
-    title: "Divine Concert",
-    date: "2024-06-20",
-    price: "12000",
-    image: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=500&h=300&fit=crop"
-  },
-  {
-    id: 3,
-    title: "AP Dhillon Live",
-    date: "2024-08-10",
-    price: "18000",
-    image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500&h=300&fit=crop"
-  },
-  {
-    id: 4,
-    title: "Rock Festival",
-    date: "2024-09-05",
-    price: "20000",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=500&h=300&fit=crop"
-  }
-];
+// const trendingEvents = [
+//   {
+//     id: 1,
+//     title: "Summer Music Festival",
+//     date: "2024-07-15",
+//     price: "15000",
+//     image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=500&h=300&fit=crop"
+//   },
+//   {
+//     id: 2,
+//     title: "Divine Concert",
+//     date: "2024-06-20",
+//     price: "12000",
+//     image: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=500&h=300&fit=crop"
+//   },
+//   {
+//     id: 3,
+//     title: "AP Dhillon Live",
+//     date: "2024-08-10",
+//     price: "18000",
+//     image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500&h=300&fit=crop"
+//   },
+//   {
+//     id: 4,
+//     title: "Rock Festival",
+//     date: "2024-09-05",
+//     price: "20000",
+//     image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=500&h=300&fit=crop"
+//   }
+// ];
 
 export default function HomePage() {
   return (
@@ -153,7 +153,7 @@ export default function HomePage() {
         {/* <Button size="lg">Explore</Button> */}
       </div>
       <img 
-        src="@/assets/transfer.gif" 
+        src="/src/assets/transfer.gif" 
         alt="Transfer Ticket GIF"
         className="w-full rounded-lg shadow-2xl"
       />
@@ -167,7 +167,7 @@ export default function HomePage() {
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div className="bg-white/5 rounded-2xl p-6">
         <img 
-          src="@/assets/sell.gif" 
+          src="/src/assets/sell.gif" 
           alt="Sell Ticket GIF"
           className="w-full rounded-lg shadow-2xl"
         />
@@ -199,7 +199,7 @@ export default function HomePage() {
         {/* <Button size="lg">Explore</Button> */}
       </div>  
         <img 
-          src="@/assets/group.gif" 
+          src="/src/assets/group.gif" 
           alt="Group Booking GIF"
           className="w-full rounded-lg shadow-2xl"
         />
