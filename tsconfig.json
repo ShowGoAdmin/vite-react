@@ -8,7 +8,7 @@
     "allowJs": true,    // Optional, allows JavaScript files
     "moduleResolution": "node", // Optional, ensures modules are resolved correctly
     "resolveJsonModule": true,
-    "jsx": "react-jsx",u
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
