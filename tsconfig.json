@@ -3,16 +3,5 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ],
-  "compilerOptions": {
-    "allowJs": true,    // Optional, allows JavaScript files
-    "moduleResolution": "node", // Optional, ensures modules are resolved correctly
-    "resolveJsonModule": true,
-    "jsx": "react-jsx",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "typeRoots": ["node_modules/@types"]
-  }
+  ]
 }
