@@ -169,13 +169,11 @@ export default function HomePage() {
 <section className="py-20 bg-black">
   <div className="max-w-7xl mx-auto px-4">
     <div className="grid md:grid-cols-2 gap-12 items-center">
-      <div className="bg-white/5 rounded-2xl p-6">
         <img 
           src={sellGif}
           alt="Sell Ticket GIF"
           className="w-full rounded-lg shadow-2xl"
         />
-      </div>
       <div>
         <h2 className="text-4xl font-bold mb-6">
         Quick and Secure Resale<br />
