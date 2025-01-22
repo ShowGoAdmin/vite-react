@@ -40,11 +40,11 @@ import groupGif from '@/assets/group.gif';
 
 export default function HomePage() {
   return (
-    <div className="pt-16 w-full">
+    <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative h-[50vh] flex items-center justify-center text-center w-full">
+      <section className="relative h-[50vh] flex items-center justify-center text-center">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black" />
-        <div className="relative z-10 max-w-none mx-auto px-4 w-full">
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -75,8 +75,8 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-0 bg-black w-full">
-      <div className="max-w-none mx-auto px-4 grid md:grid-cols-3 gap-8 w-full">
+      <section className="py-0 bg-black">
+        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
           <div className="text-center">
             <ArrowRightLeft className="w-12 h-12 mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2">Transfer Your Ticket</h3>
@@ -144,9 +144,9 @@ export default function HomePage() {
       </section> */}
 
       {/* Transfer Ticket Section */}
-      <section id="transfer" className="py-20 bg-gradient-to-b from-black to-black-900 w-full">
-      <div className="max-w-none mx-auto px-4 w-full">
-        <div className="grid md:grid-cols-2 gap-12 items-center w-full">
+      <section id="transfer" className="py-20 bg-gradient-to-b from-black to-black-900">
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
       <div>
         <h2 className="text-4xl font-bold mb-6">
         Effortless Ticket Transfers <br />
@@ -166,9 +166,9 @@ export default function HomePage() {
 </section>
 
 {/* Sell Ticket Section */}
-<section className="py-20 bg-black w-full">
-  <div className="max-w-none mx-auto px-4 w-full">
-  <div className="grid md:grid-cols-2 gap-12 items-center w-full">
+<section className="py-20 bg-black">
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
         <img 
           src={sellGif}
           alt="Sell Ticket GIF"
@@ -188,9 +188,9 @@ export default function HomePage() {
 </section>
 
       {/* Group Booking Section */}
-      <section className="py-20 bg-black w-full">
-      <div className="max-w-none mx-auto px-4 w-full">
-      <div className="grid md:grid-cols-2 gap-12 items-center w-full">
+      <section className="py-20 bg-black">
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
       <div>
         <h2 className="text-4xl font-bold mb-6">
           Stay Connected, Plan Together<br /> 
