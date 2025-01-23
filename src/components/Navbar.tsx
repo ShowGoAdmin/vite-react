@@ -29,11 +29,8 @@ export default function Navbar() {
             <span className="font-light text-2xl tracking-wider">ShowGo.</span>
           </Link>
 
-          {/* Navigation Links and Get Started Button */}
-          
-
-          <div className="flex-1 flex justify-center ">
-            {/* Navigation Links */}
+          {/* Navigation Links */}
+          <div className="flex-1 flex justify-center">
             <div className="hidden md:flex items-center space-x-2 mr-20">
               <Link
                 to="/"
@@ -45,16 +42,6 @@ export default function Navbar() {
               >
                 Home
               </Link>
-              {/* <Link
-                to="/events"
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  location.pathname.startsWith('/events')
-                    ? 'bg-white text-black'
-                    : 'text-white hover:text-gray-300'
-                }`}
-              >
-                Events
-              </Link> */}
               <Link
                 to="/about"
                 className={`px-4 py-2 rounded-lg transition-colors ${
@@ -66,34 +53,36 @@ export default function Navbar() {
                 About
               </Link>
             </div>
+          </div>
 
-            {/* Get Started Button */}
+          {/* Get Started Button (Moved to the extreme right) */}
+          <div className="ml-auto">
             {!user && (
               <Button onClick={() => navigate('/signup')}>Get Started</Button>
             )}
-
-            {/* User Dropdown */}
-            {user && (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Avatar className="h-8 w-8 cursor-pointer">
-                    <AvatarImage
-                      src={`https://api.dicebear.com/7.x/initials/svg?seed=${user.name}`}
-                    />
-                    <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuItem
-                    className="cursor-pointer"
-                    onClick={handleLogout}
-                  >
-                    Log out
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
           </div>
+
+          {/* User Dropdown */}
+          {user && (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Avatar className="h-8 w-8 cursor-pointer">
+                  <AvatarImage
+                    src={`https://api.dicebear.com/7.x/initials/svg?seed=${user.name}`}
+                  />
+                  <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuItem
+                  className="cursor-pointer"
+                  onClick={handleLogout}
+                >
+                  Log out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
       </div>
     </nav>
