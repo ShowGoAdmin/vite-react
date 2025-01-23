@@ -64,15 +64,16 @@ export default function SignupPage() {
     }
   };
 
+  
   return (
-    <div className="max-h-md flex items-center justify-center bg-gradient-to-b from-black to-gray-900">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-900 px-4 sm:px-8 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-md w-full px-8 py-10 bg-black/40 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/10"
+        className="w-full max-w-md px-8 py-10 bg-black/40 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/10 mt-20 mb-20"
       >
-        <h2 className="text-3xl font-light text-center mb-8">Join ShowGo</h2>
+        <h2 className="text-3xl font-light text-center mb-8 text-white">Join ShowGo</h2>
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
@@ -80,7 +81,7 @@ export default function SignupPage() {
               type="text"
               placeholder="Name"
               {...register('name')}
-              className="bg-grey/50 border-white/10 focus:border-white/20 transition-all"
+              className="bg-black/50 border-white/10 focus:border-white/20 transition-all text-white"
             />
             {errors.name && (
               <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
@@ -92,7 +93,7 @@ export default function SignupPage() {
               type="email"
               placeholder="Email"
               {...register('email')}
-              className="bg-grey/50 border-white/10 focus:border-white/20 transition-all"
+              className="bg-black/50 border-white/10 focus:border-white/20 transition-all text-white"
             />
             {errors.email && (
               <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
@@ -104,7 +105,7 @@ export default function SignupPage() {
               type="password"
               placeholder="Password"
               {...register('password')}
-              className="bg-grey/50 border-white/10 focus:border-white/20 transition-all"
+              className="bg-black/50 border-white/10 focus:border-white/20 transition-all text-white"
             />
             {errors.password && (
               <p className="mt-1 text-sm text-red-400">{errors.password.message}</p>
@@ -116,7 +117,7 @@ export default function SignupPage() {
               type="password"
               placeholder="Confirm Password"
               {...register('confirmPassword')}
-              className="bg-grey/50 border-white/10 focus:border-white/20 transition-all"
+              className="bg-black/50 border-white/10 focus:border-white/20 transition-all text-white"
             />
             {errors.confirmPassword && (
               <p className="mt-1 text-sm text-red-400">{errors.confirmPassword.message}</p>

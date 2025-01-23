@@ -16,6 +16,8 @@ const loginSchema = z.object({
 });
 
 type LoginFormData = z.infer<typeof loginSchema>;
+
+
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
@@ -59,14 +61,14 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="max-h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-900 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-900 px-4 sm:px-8 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md px-8 py-10 bg-black/40 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/10 mt-20"  // Added mt-20 to create space from the navbar
+        className="w-full max-w-md px-8 py-10 bg-black/40 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/10"
       >
-        <h2 className="text-3xl font-light text-center mb-8 text-white mt-20">Welcome Back</h2>
+        <h2 className="text-3xl font-light text-center mb-5 text-white">Welcome Back</h2>
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
