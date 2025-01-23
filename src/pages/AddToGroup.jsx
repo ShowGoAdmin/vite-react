@@ -3,6 +3,8 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { account } from '../lib/appwrite'; // Importing account from appwrite.js
 import { addUserToGroup } from '../lib/appwrite'; // Importing the addUserToGroup function
 import { UNKNOWN_ERROR } from '../constants/constants';
+import { USER_ALREADY_IN_GROUP, USER_ADDED_TO_GROUP, UNKNOWN_ERROR } from '../constants/constants';
+
 
 const AddToGroup = () => {
   const [searchParams] = useSearchParams();
@@ -63,10 +65,10 @@ const AddToGroup = () => {
         setMessage('You are already a member of this group.');
       } else if(result.errorCode == UNKNOWN_ERROR){
         setMessage('An unknown error occurred. Please try again later.');
-      }else {
+      }else if(result.errorCode == USER_ADDED_TO_GROUP) {
         setMessage('Successfully joined the group!');
       }
-      
+
     } catch (error) {
       setMessage(`Error joining group: ${error.message}`);
     } finally {
