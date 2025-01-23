@@ -8,6 +8,7 @@ import SignupPage from './pages/SignupPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage'; 
 import About from './pages/About';
 import ResetPasswordPage from './pages/ResetPasswordPage';
+import AddToGroup from './pages/AddToGroup';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
+        <Route path="/joinGroup" element={<AddToGroup />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />

@@ -1,10 +1,16 @@
-import { Client, Account } from 'appwrite';
+import { Client, Account, Databases } from 'appwrite';
 
 const client = new Client()
   .setEndpoint('https://cloud.appwrite.io/v1')
   .setProject('67699acf002ecc80c89f');
 
 export const account = new Account(client);
+export const databases = new Databases(client);
+
+
+const DATABASE_ID = '6769b0dd00017ee9df9d'; // Replace with your database ID
+const COLLECTION_ID = 'groups'; // Replace with your collection ID for groups
+
 
 export const login = async (email: string, password: string) => {
   try {
@@ -101,5 +107,35 @@ export const resetPasswordConfirm = async (password: string, passwordAgain: stri
     return { success: true, data: result };
   } catch (error: any) {
     return { success: false, error: error.message || 'Failed to reset password.' };
+  }
+};
+
+// Fetch group document by ID
+export const getGroupById = async (groupId: string) => {
+  try {
+    const group = await databases.getDocument(DATABASE_ID, COLLECTION_ID, groupId);
+    return { success: true, data: group };
+  } catch (error: any) {
+    return { success: false, error: error.message || 'Failed to fetch group data.' };
+  }
+};
+
+// Add user to the group (members array)
+export const addUserToGroup = async (groupId: string, userId: string) => {
+  try {
+    const group = await getGroupById(groupId);
+    if (!group.success) {
+      return group; // If the group fetch fails, return the error
+    }
+
+    // Update the group with the new member
+    const updatedMembers = [...(group?.data?.members || []), userId];
+    await databases.updateDocument(DATABASE_ID, COLLECTION_ID, groupId, {
+      members: updatedMembers,
+    });
+
+    return { success: true, data: updatedMembers };
+  } catch (error: any) {
+    return { success: false, error: error.message || 'Failed to add user to group.' };
   }
 };

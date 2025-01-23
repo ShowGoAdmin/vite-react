@@ -17,7 +17,6 @@ const loginSchema = z.object({
 
 type LoginFormData = z.infer<typeof loginSchema>;
 
-
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
@@ -41,7 +40,15 @@ export default function LoginPage() {
           title: 'Welcome back!',
           description: 'Successfully logged in',
         });
-        navigate('/');
+
+        // Check if there's a redirect URL in localStorage
+        const redirectUrl = localStorage.getItem('redirectUrl');
+        if (redirectUrl) {
+          localStorage.removeItem('redirectUrl'); // Remove URL after redirect
+          navigate(redirectUrl); // Navigate to the stored URL
+        } else {
+          navigate('/'); // Default route after login (home page)
+        }
       } else {
         toast({
           title: 'Login failed',
