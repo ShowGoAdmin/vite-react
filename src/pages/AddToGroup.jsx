@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { account } from '../lib/appwrite'; // Importing account from appwrite.js
 import { addUserToGroup } from '../lib/appwrite'; // Importing the addUserToGroup function
-import { UNKNOWN_ERROR } from '../constants/constants';
 import { USER_ALREADY_IN_GROUP, USER_ADDED_TO_GROUP, UNKNOWN_ERROR } from '../constants/constants';
 
 
