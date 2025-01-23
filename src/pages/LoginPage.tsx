@@ -67,7 +67,7 @@ export default function LoginPage() {
         className="w-full max-w-md px-8 py-10 bg-black/40 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/10 mt-20"  // Added mt-20 to create space from the navbar
       >
         <h2 className="text-3xl font-light text-center mb-8 text-white">Welcome Back</h2>
-        
+         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
             <Input
