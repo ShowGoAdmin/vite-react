@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -22,10 +22,13 @@ const resetPasswordSchema = z.object({
 type ResetPasswordFormData = z.infer<typeof resetPasswordSchema>;
 
 export default function ResetPasswordPage() {
-  const { token } = useParams<{ token: string }>(); // Retrieve token from URL params
+  const [searchParams] = useSearchParams(); // Hook to access query parameters
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const navigate = useNavigate();
+
+  const userId = searchParams.get('userId');
+  const secret = searchParams.get('secret');
 
   const {
     register,
@@ -35,11 +38,24 @@ export default function ResetPasswordPage() {
     resolver: zodResolver(resetPasswordSchema),
   });
 
+  useEffect(() => {
+    // Validate URL parameters on page load
+    if (!userId || !secret) {
+      toast({
+        title: 'Error',
+        description: 'Invalid or expired reset link.',
+        variant: 'destructive',
+      });
+      navigate('/forgot-password'); // Redirect to forgot password page
+    }
+  }, [userId, secret, navigate, toast]);
+
   const onSubmit = async (data: ResetPasswordFormData) => {
     setIsLoading(true);
     try {
-      if (token) {
-        const result = await resetPasswordConfirm(data.password, data.confirmPassword, token);
+      if (userId && secret) {
+        // Proceed with password recovery
+        const result = await resetPasswordConfirm(data.password, data.confirmPassword, secret, userId);
         if (result.success) {
           toast({
             title: 'Success',
@@ -57,25 +73,13 @@ export default function ResetPasswordPage() {
     } catch (error) {
       toast({
         title: 'Error',
-        description: 'Something went wrong.',
+        description: 'Something went wrong. Please try again.',
         variant: 'destructive',
       });
     } finally {
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    // Handle case where token is not provided or expired
-    if (!token) {
-      toast({
-        title: 'Error',
-        description: 'Invalid or expired reset token.',
-        variant: 'destructive',
-      });
-      navigate('/forgot-password'); // Redirect to forgot password page
-    }
-  }, [token, navigate, toast]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black">

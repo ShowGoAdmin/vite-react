@@ -8,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from './ui/button';
 
 export default function Navbar() {
   const location = useLocation();
@@ -67,9 +68,9 @@ export default function Navbar() {
             </div>
 
             {/* Get Started Button */}
-            {/* {!user && (
+            {!user && (
               <Button onClick={() => navigate('/signup')}>Get Started</Button>
-            )} */}
+            )}
 
             {/* User Dropdown */}
             {user && (

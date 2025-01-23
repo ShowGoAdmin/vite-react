@@ -79,7 +79,7 @@ export const getCurrentUser = async () => {
 export const resetPassword = async (email: string) => {
   try {
     // Make sure to replace this URL with a production URL in the future
-    await account.createRecovery(email, 'http://localhost:5173/reset-password');
+    await account.createRecovery(email, 'https://showgo.in/reset-password');
     return { success: true };
   } catch (error: any) {
     return { 
@@ -89,11 +89,11 @@ export const resetPassword = async (email: string) => {
   }
 };
 
-export const resetPasswordConfirm = async (password: string, passwordAgain: string, secret: string) => {
+export const resetPasswordConfirm = async (password: string, passwordAgain: string, secret: string, userId: string) => {
   try {
     // Call updateRecovery with user details
     const result = await account.updateRecovery(
-      'unique()', // Provide the user's unique ID (you may retrieve this from the current session)
+      userId, // Provide the user's unique ID (you may retrieve this from the current session)
       secret,     // The recovery token from the URL
       password,   // New password
       passwordAgain // Password confirmation
