@@ -64,7 +64,7 @@ export default function LoginPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md px-8 py-10 bg-black/40 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/10 mt-20 mb-6"  // Added mt-20 to create space from the navbar
+        className="w-full max-w-md px-8 py-10 bg-black/40 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/10 mt-20"  // Added mt-20 to create space from the navbar
       >
         <h2 className="text-3xl font-light text-center mb-8 text-white">Welcome Back</h2>
         
