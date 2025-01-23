@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { account } from '../lib/appwrite'; // Importing account from appwrite.js
 import { addUserToGroup } from '../lib/appwrite'; // Importing the addUserToGroup function
+import { UNKNOWN_ERROR } from '../constants/constants';
 
 const AddToGroup = () => {
   const [searchParams] = useSearchParams();
@@ -58,11 +59,14 @@ const AddToGroup = () => {
       // Add user to the group
       const result = await addUserToGroup(groupId, userId);
 
-      if (!result.success) {
-        setMessage(result.error);
-      } else {
+      if (!result.success && result.errorCode === USER_ALREADY_IN_GROUP) {
+        setMessage('You are already a member of this group.');
+      } else if(result.errorCode == UNKNOWN_ERROR){
+        setMessage('An unknown error occurred. Please try again later.');
+      }else {
         setMessage('Successfully joined the group!');
       }
+      
     } catch (error) {
       setMessage(`Error joining group: ${error.message}`);
     } finally {

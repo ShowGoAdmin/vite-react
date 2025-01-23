@@ -1,4 +1,5 @@
 import { Client, Account, Databases } from 'appwrite';
+import { USER_ALREADY_IN_GROUP, USER_ADDED_TO_GROUP, USER_NOT_ADDED_TO_GROUP, UNKNOWN_ERROR } from '../constants/constants';
 
 const client = new Client()
   .setEndpoint('https://cloud.appwrite.io/v1')
@@ -128,14 +129,20 @@ export const addUserToGroup = async (groupId: string, userId: string) => {
       return group; // If the group fetch fails, return the error
     }
 
-    // Update the group with the new member
-    const updatedMembers = [...(group?.data?.members || []), userId];
+    const existingMembers = group?.data?.members || [];
+    // Check if the user is already in the group
+    if (existingMembers.includes(userId)) {
+      return { success: false, errorCode: USER_ALREADY_IN_GROUP };
+    } 
+
+    // Add the user to the group
+    const updatedMembers = [...existingMembers, userId];
     await databases.updateDocument(DATABASE_ID, COLLECTION_ID, groupId, {
       members: updatedMembers,
     });
 
-    return { success: true, data: updatedMembers };
+    return { success: true, data: updatedMembers, errorCode: USER_ADDED_TO_GROUP };
   } catch (error: any) {
-    return { success: false, error: error.message || 'Failed to add user to group.' };
+    return { success: false, errorCode: UNKNOWN_ERROR, error: error.message || 'Failed to add user to group.' };
   }
 };
