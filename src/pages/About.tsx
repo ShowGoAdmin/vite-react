@@ -5,7 +5,7 @@ const About: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* About the App Section */}
       <div className="mb-12">
-        <h1 className="text-4xl font-bold mb-6 text-center text-white mt-24">About ShowGo</h1>
+        <h1 className="text-4xl font-bold mb-6 text-center text-white mt-24">About ShowGo.</h1>
         <div className="text-center">
           <p className="text-lg text-gray-400 mb-4 leading-8">
             ShowGo is a comprehensive ticketing platform designed to streamline the way events are
